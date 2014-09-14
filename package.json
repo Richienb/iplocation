@@ -1,0 +1,31 @@
+{
+  "name": "iplocation",
+  "version": "0.1.0",
+  "description": "get ip location information using the freegeoip.net service",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/roryrjb/iplocation"
+  },
+  "keywords": [
+    "ip",
+    "location",
+    "ip-location",
+    "geolocation"
+  ],
+  "author": "Rory Bradford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roryrjb/iplocation/issues"
+  },
+  "homepage": "https://github.com/roryrjb/iplocation",
+  "dependencies": {
+    "fetchjson": "^1.2.0"
+  }
+}
