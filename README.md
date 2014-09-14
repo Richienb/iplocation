@@ -50,7 +50,7 @@ You can clear the object using the below:
 iplocation.clearCache();
 ```
 
-You can also check the side of the cache or view the cache, using:
+You can also check the size of the cache or view the cache, using:
 
 ```javascript
 iplocation.cacheSize();

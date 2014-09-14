@@ -1,6 +1,6 @@
 {
   "name": "iplocation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "get ip location information using the freegeoip.net service",
   "main": "index.js",
   "directories": {
