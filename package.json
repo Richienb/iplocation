@@ -1,12 +1,10 @@
 {
   "name": "iplocation",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "get ip location information using the freegeoip.net service",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
+    "prepublish": "coffee -c *.coffee",
     "test": "node test"
   },
   "repository": {
@@ -26,6 +24,7 @@
   },
   "homepage": "https://github.com/roryrjb/iplocation",
   "dependencies": {
-    "fetchjson": "^1.2.0"
+    "ip-regex": "^1.0.3",
+    "request": "^2.57.0"
   }
 }
