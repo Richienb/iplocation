@@ -1,4 +1,4 @@
-# iplocation
+# iplocation [![Build Status](https://travis-ci.org/roryrjb/iplocation.svg?branch=master)](https://travis-ci.org/roryrjb/iplocation) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 ### Overview
 
