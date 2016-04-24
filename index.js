@@ -7,13 +7,16 @@ module.exports = function (ip, callback) {
   if (!ipRegex().test(ip)) {
     return callback('Invalid IP address.', null)
   }
-  return request.get('http://freegeoip.net/json/' + ip, function (err, response, body) {
+
+  return request.get('http://ip-api.com/json/' + ip, function (err, response, body) {
     var json
+
     try {
       json = JSON.parse(body)
     } catch (ex) {
       return callback(ex, null)
     }
+
     return callback(err, json)
   })
 }

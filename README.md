@@ -2,9 +2,9 @@
 
 ### Overview
 
-Get IP location information using the [freegeoip.net](http://freegeoip.net) service.
+Get IP location information using [ip-api](http://ip-api.com).
 
-__Please consider donating to the service if you use it a lot. Also see [https://github.com/fiorix/freegeoip](https://github.com/fiorix/freegeoip) for more info.__
+_"Our system will automatically ban any IP addresses doing over 150 requests per minute."_
 
 ### Installation
 
@@ -21,25 +21,24 @@ iplocation('56.70.97.8', function (error, res) {
 
   /* res =>
 
-    {
-      ip: '56.70.97.8',
-      country_code: 'US',
-      country_name: 'United States',
-      region_code: 'NC',
-      region_name: 'North Carolina',
-      city: 'Raleigh',
-      zipcode: '27668',
-      latitude: 35.7977,
-      longitude: -78.6253,
-      metro_code: '560',
-      area_code: '919'
-    }
+  {
+    as: 'AS11286 KeyBank National Association',
+    city: 'Cleveland',
+    country: 'United States',
+    countryCode: 'US',
+    isp: 'KeyBank National Association',
+    lat: 41.4875,
+    lon: -81.6724,
+    org: 'KeyBank National Association',
+    query: '156.77.54.32',
+    region: 'OH',
+    regionName: 'Ohio',
+    status: 'success',
+    timezone: 'America/New_York',
+    zip: '44115'
+  }
 
   */
 
 })
 ```
-
-### Caveats
-
-* freegeoip.net's limit is _10,000 requests per hour_
