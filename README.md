@@ -1,7 +1,6 @@
 # iplocation
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/roryrjb/iplocation.svg)](https://greenkeeper.io/)
-
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
 [![License][license-image]][license-url]
@@ -117,6 +116,10 @@ iplocation('56.70.97.8')
     console.error(err)
   })
 ```
+
+### See Also
+
+[`iplocation-cli`](https://github.com/roryrjb/iplocation-cli) - this module as a command line app.
 
 [npm-image]: https://img.shields.io/npm/v/iplocation.svg
 [npm-url]: https://npmjs.org/package/iplocation
