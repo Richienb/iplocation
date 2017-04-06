@@ -35,6 +35,6 @@
   },
   "devDependencies": {
     "ahcom": "^0.0.10",
-    "standard": "^9.0.2"
+    "standard": "^10.0.1"
   }
 }
