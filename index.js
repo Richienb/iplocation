@@ -17,15 +17,13 @@ module.exports = function () {
     throw new TypeError('Too many arguments.')
   }
 
-  var ip = args[0]
-  var alternativeProviders = (args[1] && Array.isArray(args[1]))
+  var ip = typeof args[0] === 'string' && args.shift()
+  var alternativeProviders = Array.isArray(args[0]) && args.shift()
   var providers = defaultProviders.concat(alternativeProviders || [])
 
-  var callback = alternativeProviders
-    ? args[2]
-    : args[1]
+  var callback = typeof args[0] === 'function' && args.shift()
 
-  if (!ipRegex().test(ip)) {
+  if (ip && !ipRegex().test(ip)) {
     var invalidIpError = new Error('Invalid IP address.')
     return callback
       ? callback(invalidIpError, null)
@@ -38,7 +36,7 @@ module.exports = function () {
       return callback(providerError, null)
     }
 
-    var url = providers[i].replace('*', ip)
+    var url = providers[i].replace('*', ip || '')
 
     debug('trying: ' + url)
 
