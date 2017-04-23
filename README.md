@@ -22,7 +22,7 @@ $ yarn add iplocation
 
 ### Usage
 
-__iplocation(ip, [providers], [callback])__
+__iplocation([ip], [providers], [callback])__
 
 __Providers:__
 
@@ -36,6 +36,9 @@ https://domain-name.tld/?ip=*&format=json
 
 Basically wherever the API requires the IP address put a `*` and the module
 will replace it with the IP address entered as arguments.
+
+You can ommit the IP address parameter to return data for the ip address of the requesting client, (in a server environment this will be the server public IP address, in a browser this will be the clients public IP address).
+
 
 __Callback:__
 
