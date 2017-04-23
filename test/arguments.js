@@ -40,3 +40,14 @@ describe('too many arguments', function () {
     }
   })
 })
+
+describe('implicit (no) ip address', function () {
+  it('return data about requesting client', function (done) {
+    ipLocation(function (err, res) {
+      assert(!err)
+      assert(typeof res === 'object')
+      assert(res.ip)
+      setTimeout(done, 1000)
+    })
+  })
+})
