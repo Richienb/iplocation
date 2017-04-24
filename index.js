@@ -40,7 +40,7 @@ module.exports = function () {
 
     debug('trying: ' + url)
 
-    request.get(url, function (err, response, body) {
+    request.get(url, { withCredentials: false }, function (err, response, body) {
       var json
 
       try {
