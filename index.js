@@ -5,8 +5,8 @@ var ipRegex = require('ip-regex')
 var request = require('request')
 
 var defaultProviders = [
-  'https://ipapi.co/*/json/',
   'https://freegeoip.net/json/*',
+  'https://ipapi.co/*/json/',
   'http://ip-api.com/json/*'
 ]
 
