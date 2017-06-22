@@ -6,8 +6,7 @@ var request = require('request')
 
 var defaultProviders = [
   'https://freegeoip.net/json/*',
-  'https://ipapi.co/*/json/',
-  'http://ip-api.com/json/*'
+  'https://ipapi.co/*/json/'
 ]
 
 module.exports = function () {
