@@ -1,6 +1,6 @@
 {
   "name": "iplocation",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "description": "get ip location information",
   "main": "index.js",
   "files": [
@@ -23,6 +23,11 @@
     "geolocation"
   ],
   "author": "Rory Bradford",
+  "contributors": [
+    {
+      "name": "Chris Dyson"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/roryrjb/iplocation/issues"
