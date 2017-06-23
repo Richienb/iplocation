@@ -44,14 +44,14 @@ __Callback:__
 
 If you omit the callback argument, the function will return a promise.
 
-__Default providers:__
+__Providers:__
 
-This module will try the following providers _in order_ if each request fails:
+This module will try providers _in order_, moving onto then next provider if the request fails. If provided, additional providers will be tried first, if the all additional providers fail or none are provided then the following defaults are tried _in order_.
 
 * https://freegeoip.net/
 * https://ipapi.co/
 
-You won't get anything if __all__ fail, but you can provide additional providers as well.
+You won't get anything if __all__ providers fail.
 
 __Callbacks:__
 

@@ -18,7 +18,7 @@ module.exports = function () {
 
   var ip = typeof args[0] === 'string' && args.shift()
   var alternativeProviders = Array.isArray(args[0]) && args.shift()
-  var providers = defaultProviders.concat(alternativeProviders || [])
+  var providers = (alternativeProviders || []).concat(defaultProviders)
 
   var callback = typeof args[0] === 'function' && args.shift()
 
