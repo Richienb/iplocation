@@ -48,9 +48,8 @@ __Default providers:__
 
 This module will try the following providers _in order_ if each request fails:
 
-* https://ipapi.co/
 * https://freegeoip.net/
-* http://ip-api.com/json/
+* https://ipapi.co/
 
 You won't get anything if __all__ fail, but you can provide additional providers as well.
 
