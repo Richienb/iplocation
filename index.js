@@ -5,9 +5,8 @@ var ipRegex = require('ip-regex')
 var request = require('request')
 
 var defaultProviders = [
-  'https://ipapi.co/*/json/',
   'https://freegeoip.net/json/*',
-  'http://ip-api.com/json/*'
+  'https://ipapi.co/*/json/'
 ]
 
 module.exports = function () {
@@ -19,7 +18,7 @@ module.exports = function () {
 
   var ip = typeof args[0] === 'string' && args.shift()
   var alternativeProviders = Array.isArray(args[0]) && args.shift()
-  var providers = defaultProviders.concat(alternativeProviders || [])
+  var providers = (alternativeProviders || []).concat(defaultProviders)
 
   var callback = typeof args[0] === 'function' && args.shift()
 
