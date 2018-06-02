@@ -5,8 +5,10 @@ var ipRegex = require('ip-regex')
 var request = require('request')
 
 var defaultProviders = [
-  'https://freegeoip.net/json/*',
-  'https://ipapi.co/*/json/'
+  'https://ipapi.co/*/json/',
+  'https://api.ipdata.co/*',
+  'http://geoip.nekudo.com/api/*',
+  'https://ipinfo.io/*'
 ]
 
 module.exports = function () {
