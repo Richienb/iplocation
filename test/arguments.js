@@ -21,10 +21,14 @@ describe('additional providers', function () {
   describe('no additional providers', function () {
     it('ip address: ' + ip, function (done) {
       ipLocation(ip, [], function (err, res) {
-        assert(!err)
-        assert(typeof res === 'object')
-        assert(res.ip)
-        setTimeout(done, 1000)
+        try {
+          assert(!err)
+          assert(typeof res === 'object')
+          assert(res.ip)
+          setTimeout(done, 1000)
+        } catch (err) {
+          done(err)
+        }
       })
     })
   })
@@ -35,8 +39,8 @@ describe('too many arguments', function () {
   it('ip address: ' + ip, function () {
     try {
       ipLocation(ip, [], [], function () {})
-    } catch (ex) {
-      assert(ex)
+    } catch (err) {
+      assert(err)
     }
   })
 })
@@ -44,10 +48,14 @@ describe('too many arguments', function () {
 describe('implicit (no) ip address', function () {
   it('return data about requesting client', function (done) {
     ipLocation(function (err, res) {
-      assert(!err)
-      assert(typeof res === 'object')
-      assert(res.ip)
-      setTimeout(done, 1000)
+      try {
+        assert(!err)
+        assert(typeof res === 'object')
+        assert(res.ip)
+        setTimeout(done, 1000)
+      } catch (err) {
+        assert(err)
+      }
     })
   })
 })

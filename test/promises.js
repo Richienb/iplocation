@@ -17,7 +17,7 @@ function randomIp () {
 }
 
 for (var i = 0; i < 10; i++) {
-  describe('try random ips', function () {
+  describe('(promises) try random ips', function () {
     var ip = randomIp()
     it('ip address: ' + ip, function (done) {
       ipLocation(ip)

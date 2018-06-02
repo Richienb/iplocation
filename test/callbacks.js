@@ -17,14 +17,19 @@ function randomIp () {
 }
 
 for (var i = 0; i < 10; i++) {
-  describe('try random ips', function () {
+  describe('(callbacks) try random ips', function () {
     var ip = randomIp()
     it('ip address: ' + ip, function (done) {
       ipLocation(ip, function (err, res) {
-        assert(!err)
-        assert(typeof res === 'object')
-        assert(res.ip)
-        setTimeout(done, 1000)
+        try {
+          assert(!err)
+          assert(typeof res === 'object')
+          assert(res.ip)
+          setTimeout(done, 1000)
+        } catch (err) {
+          assert(err)
+          done()
+        }
       })
     })
   })
