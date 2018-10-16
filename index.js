@@ -1,7 +1,7 @@
 'use strict'
 
 var debug = require('debug')('iplocation')
-var validate = require('ip-validator');
+var validate = require('ip-validator')
 var request = require('request')
 
 var defaultProviders = [
