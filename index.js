@@ -1,7 +1,7 @@
 'use strict'
 
 var debug = require('debug')('iplocation')
-var ipRegex = require('ip-regex')
+var validate = require('ip-validator')
 var request = require('request')
 
 var defaultProviders = [
@@ -24,7 +24,7 @@ module.exports = function () {
 
   var callback = typeof args[0] === 'function' && args.shift()
 
-  if (ip && !ipRegex().test(ip)) {
+  if (ip && !validate.ip(ip)) {
     var invalidIpError = new Error('Invalid IP address.')
     return callback
       ? callback(invalidIpError, null)
