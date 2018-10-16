@@ -35,7 +35,7 @@
   "homepage": "https://github.com/roryrjb/iplocation",
   "dependencies": {
     "debug": "^2.6.3",
-    "ip-regex": "^2.1.0",
+    "ip-validator": "0.0.1",
     "request": "^2.81.0"
   },
   "devDependencies": {
