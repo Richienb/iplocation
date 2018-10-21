@@ -1,8 +1,10 @@
-const ipRegex = require("ip-regex");
+import ipRegex from "ip-regex";
 
 export interface IPResponse {
     country: string;
+    countryCode: string;
     region: string;
+    regionCode: string;
     city: string;
     postal: string;
     ip: string;
@@ -17,8 +19,10 @@ export interface GenericResponse {
 }
 
 const keys: { [key: string]: string[]; } = {
-    country: ["country.name", "country.code", "country_name", "country"],
-    region: ["region", "region_code"],
+    country: ["country_name", "country.name", "country"],
+    countryCode: ["country_code", "country.code", "country"],
+    region: ["region"],
+    regionCode: ["region_code"],
     city: ["city"],
     postal: ["postal"],
     ip: ["ip"],

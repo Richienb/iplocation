@@ -4,7 +4,7 @@
 [![Build status][travis-image]][travis-url]
 [![License][license-image]][license-url]
 
-> Get IP location information using various providers. Typescript supported.
+> Get IP location information using various providers. ES module/Typescript support.
 
 ### Installation
 
@@ -14,7 +14,22 @@ $ npm install --save iplocation
 
 ### Usage
 
+__Importing:__
+
+CommonJS:
+
+```javascript
+const iplocation = require("iplocation").default;
+```
+
+ES modules/Typescript:
+
+```javascript
+import iplocation from "iplocation";
+```
+
 __Callback:__ `iplocation(ip, providers, callback)`
+
 __Promise:__ `iplocation(ip, [providers])`
 
 __Providers:__
@@ -32,24 +47,14 @@ will replace it with the IP address entered as arguments.
 
 You can omit the IP address parameter to return data for the ip address of the requesting client, (in a server environment this will be the server public IP address, in a browser this will be the clients public IP address).
 
+__Providers:__
+
+This module will try providers _in order_, moving onto then next provider if the request fails. If provided, additional providers will be tried first, if the all additional providers fail or none are provided then the [hardcoded defaults](https://github.com/roryrjb/iplocation/blob/master/src/index.ts#L6) are tried _in order_. You won't get anything if __all__ providers fail.
 
 __Callback:__
 
-If you omit the callback argument, the function will return a promise.
-
-__Providers:__
-
-This module will try providers _in order_, moving onto then next provider if the request fails. If provided, additional providers will be tried first, if the all additional providers fail or none are provided then the following defaults are tried _in order_.
-
-* https://freegeoip.net/
-* https://ipapi.co/
-
-You won't get anything if __all__ providers fail.
-
-__Callbacks:__
-
 ```javascript
-const iplocation = require('iplocation');
+const iplocation = require("iplocation").default;
 
 iplocation('56.70.97.8', [], (error, res) => {
 
@@ -79,12 +84,12 @@ iplocation('56.70.97.8', [], (error, res) => {
 
 __Breaking change (`>= v6.0.0`):__ the additional providers array (even if empty) is required.
 
-__Promises:__
+__Promise:__
 
 ```javascript
-const iplocation = require('iplocation');
+const iplocation = require("iplocation").default;
 
-iplocation('56.70.97.8')
+iplocation("56.70.97.8")
     .then((res) => {
     })
     .catch(err => {

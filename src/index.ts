@@ -5,8 +5,6 @@ import { normalise, validateIp, IPResponse } from "./interface";
 
 const defaultProviders: string[] = [
     "https://ipapi.co/*/json/",
-    "https://api.ipdata.co/*",
-    "http://geoip.nekudo.com/api/*",
     "https://ipinfo.io/*"
 ];
 
