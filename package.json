@@ -1,45 +1,55 @@
 {
-  "name": "iplocation",
-  "version": "5.0.1",
-  "description": "get ip location information",
-  "main": "index.js",
-  "files": [
-    "LICENSE.md",
-    "README.md",
-    "index.js",
-    "test.js"
-  ],
-  "scripts": {
-    "test": "./node_modules/.bin/standard && ./node_modules/.bin/ahcom"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/roryrjb/iplocation"
-  },
-  "keywords": [
-    "ip",
-    "location",
-    "ip-location",
-    "geolocation"
-  ],
-  "author": "Rory Bradford",
-  "contributors": [
-    {
-      "name": "Chris Dyson"
+    "name": "iplocation",
+    "version": "6.0.0",
+    "description": "get ip location information",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "files": [
+        "LICENSE.md",
+        "README.md",
+        "index.js",
+        "test.js"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "test": "npm run build && tslint --project . && eslint . && ahcom"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/roryrjb/iplocation"
+    },
+    "keywords": [
+        "ip",
+        "location",
+        "ip-location",
+        "geolocation"
+    ],
+    "author": "Rory Bradford <roryrjb@gmail.com> (https://roryrjb.com)",
+    "contributors": [
+        {
+            "name": "Chris Dyson"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/roryrjb/iplocation/issues"
+    },
+    "homepage": "https://github.com/roryrjb/iplocation",
+    "dependencies": {
+        "debug": "=4.1.0",
+        "ip-regex": "=2.1.0",
+        "request": "=2.88.0"
+    },
+    "devDependencies": {
+        "@types/debug": "=0.0.31",
+        "@types/ip-regex": "=2.0.0",
+        "@types/request": "=2.47.1",
+        "ahcom": "=0.0.10",
+        "eslint": "=5.7.0",
+        "tslint": "=5.11.0",
+        "typescript": "=3.1.3"
+    },
+    "engines": {
+        "node": ">=4.0.0"
     }
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/roryrjb/iplocation/issues"
-  },
-  "homepage": "https://github.com/roryrjb/iplocation",
-  "dependencies": {
-    "debug": "^2.6.3",
-    "ip-regex": "^2.1.0",
-    "request": "^2.81.0"
-  },
-  "devDependencies": {
-    "ahcom": "^0.0.10",
-    "standard": "^10.0.1"
-  }
 }
