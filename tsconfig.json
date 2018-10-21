@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "lib": ["es2015"],
+        "esModuleInterop": true,
+        "target": "es5",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "outDir": "lib",
+        "baseUrl": ".",
+        "declaration": true,
+        "paths": {
+            "*": [
+                "node_modules/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "extends": "eslint:recommended",
+    "rules": {
+        "indent": ["error", 4],
+        "semi": ["error", "always"]
+    },
+    "env": {
+        "es6": true,
+        "node": true
+    }
+}
