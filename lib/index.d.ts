@@ -14,7 +14,7 @@ interface Callback {
 
 export default function (
     ip: string,
-    additionalProviders: string[]
+    additionalProviders?: string[]
 ): Promise<IPResponse>;
 
 export default function (

@@ -3,7 +3,7 @@
 /* global describe, it */
 
 const assert = require('assert');
-const ipLocation = require('../lib/').default;
+const iplocation = require('../lib/').default;
 
 function randomInt () {
     return Math.round(Math.random() * 255);
@@ -21,7 +21,7 @@ for (let i = 0; i < 10; i++) {
         const ip = randomIp();
 
         it('ip address: ' + ip, function (done) {
-            ipLocation(ip)
+            iplocation(ip)
                 .then(function (res) {
                     assert(typeof res === 'object');
                     assert(res.ip);

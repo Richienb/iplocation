@@ -32,11 +32,11 @@ interface Callback {
 
 export default function(
     ip: string,
-    additionalProviders: string[],
+    additionalProviders?: string[],
     callback?: Callback
 ): Promise<IPResponse | InvalidIPError | ProviderError | Error> | void {
     const providers: string[] = defaultProviders
-        .concat(additionalProviders);
+        .concat(additionalProviders || []);
 
     if (validateIp(ip)) {
         return callback

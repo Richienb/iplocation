@@ -14,7 +14,8 @@ $ npm install --save iplocation
 
 ### Usage
 
-__iplocation(ip, providers, [callback])__
+__Callback:__ `iplocation(ip, providers, callback)`
+__Promise:__ `iplocation(ip, [providers])`
 
 __Providers:__
 
@@ -50,7 +51,7 @@ __Callbacks:__
 ```javascript
 const iplocation = require('iplocation');
 
-iplocation('56.70.97.8', (error, res) => {
+iplocation('56.70.97.8', [], (error, res) => {
 
     /* res:
 
@@ -75,6 +76,8 @@ iplocation('56.70.97.8', (error, res) => {
 
 });
 ```
+
+__Breaking change (`>= v6.0.0`):__ the additional providers array (even if empty) is required.
 
 __Promises:__
 
