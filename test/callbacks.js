@@ -21,7 +21,7 @@ for (let i = 0; i < 10; i++) {
         const ip = randomIp();
 
         it("ip address: " + ip, function (done) {
-            iplocation(ip, function (err, res) {
+            iplocation(ip, [], function (err, res) {
                 try {
                     assert(!err);
                     assert(typeof res === "object");
