@@ -3,25 +3,18 @@
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
 [![License][license-image]][license-url]
-[![Code style][standard-image]][standard-url]
 
-> Get IP location information using various providers.
+> Get IP location information using various providers. Typescript supported.
 
 ### Installation
 
 ```
-$ npm install iplocation
-```
-
-...or:
-
-```
-$ yarn add iplocation
+$ npm install --save iplocation
 ```
 
 ### Usage
 
-__iplocation([ip], [providers], [callback])__
+__iplocation(ip, providers, [callback])__
 
 __Providers:__
 
@@ -36,7 +29,7 @@ https://domain-name.tld/?ip=*&format=json
 Basically wherever the API requires the IP address put a `*` and the module
 will replace it with the IP address entered as arguments.
 
-You can ommit the IP address parameter to return data for the ip address of the requesting client, (in a server environment this will be the server public IP address, in a browser this will be the clients public IP address).
+You can omit the IP address parameter to return data for the ip address of the requesting client, (in a server environment this will be the server public IP address, in a browser this will be the clients public IP address).
 
 
 __Callback:__
@@ -55,67 +48,44 @@ You won't get anything if __all__ providers fail.
 __Callbacks:__
 
 ```javascript
-var iplocation = require('iplocation')
+const iplocation = require('iplocation');
 
-iplocation('56.70.97.8', function (error, res) {
+iplocation('56.70.97.8', (error, res) => {
 
-  /* res:
+    /* res:
 
-    {
-      as: 'AS11286 KeyBank National Association',
-      city: 'Cleveland',
-      country: 'United States',
-      countryCode: 'US',
-      isp: 'KeyBank National Association',
-      lat: 41.4875,
-      lon: -81.6724,
-      org: 'KeyBank National Association',
-      query: '156.77.54.32',
-      region: 'OH',
-      regionName: 'Ohio',
-      status: 'success',
-      timezone: 'America/New_York',
-      zip: '44115'
-    }
+        {
+            as: 'AS11286 KeyBank National Association',
+            city: 'Cleveland',
+            country: 'United States',
+            countryCode: 'US',
+            isp: 'KeyBank National Association',
+            lat: 41.4875,
+            lon: -81.6724,
+            org: 'KeyBank National Association',
+            query: '156.77.54.32',
+            region: 'OH',
+            regionName: 'Ohio',
+            status: 'success',
+            timezone: 'America/New_York',
+            zip: '44115'
+        }
 
-  */
+    */
 
-})
+});
 ```
 
 __Promises:__
 
 ```javascript
-var iplocation = require('iplocation')
+const iplocation = require('iplocation');
 
 iplocation('56.70.97.8')
-  .then(res => {
-
-    /* res:
-
-      {
-        as: 'AS11286 KeyBank National Association',
-        city: 'Cleveland',
-        country: 'United States',
-        countryCode: 'US',
-        isp: 'KeyBank National Association',
-        lat: 41.4875,
-        lon: -81.6724,
-        org: 'KeyBank National Association',
-        query: '156.77.54.32',
-        region: 'OH',
-        regionName: 'Ohio',
-        status: 'success',
-        timezone: 'America/New_York',
-        zip: '44115'
-      }
-
-    */
-
-  })
-  .catch(err => {
-    console.error(err)
-  })
+    .then((res) => {
+    })
+    .catch(err => {
+    });
 ```
 
 ### See Also
@@ -128,5 +98,3 @@ iplocation('56.70.97.8')
 [travis-url]: https://travis-ci.org/roryrjb/iplocation
 [license-image]: http://img.shields.io/npm/l/iplocation.svg
 [license-url]: LICENSE
-[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
-[standard-url]: https://github.com/feross/standard
