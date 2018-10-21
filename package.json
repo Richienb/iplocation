@@ -1,14 +1,14 @@
 {
     "name": "iplocation",
-    "version": "6.0.0",
+    "version": "6.0.1",
     "description": "get ip location information",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "files": [
-        "LICENSE.md",
+        "LICENSE",
         "README.md",
-        "index.js",
-        "test.js"
+        "lib/*",
+        "src/*"
     ],
     "scripts": {
         "build": "tsc",
