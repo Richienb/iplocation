@@ -34,7 +34,7 @@ export default function(
     ip: string,
     additionalProviders: string[],
     callback?: Callback
-) {
+): Promise<IPResponse | InvalidIPError | ProviderError | Error> | void {
     const providers: string[] = defaultProviders
         .concat(additionalProviders);
 

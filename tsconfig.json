@@ -8,7 +8,6 @@
         "moduleResolution": "node",
         "outDir": "lib",
         "baseUrl": ".",
-        "declaration": true,
         "paths": {
             "*": [
                 "node_modules/*"
