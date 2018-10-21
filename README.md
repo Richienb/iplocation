@@ -22,6 +22,8 @@ CommonJS:
 const iplocation = require("iplocation").default;
 ```
 
+__Breaking change (`>= v6.0.0`):__ `.default` is now required when using __CommonJS__ `require`.
+
 ES modules/Typescript:
 
 ```javascript
