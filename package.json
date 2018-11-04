@@ -1,6 +1,6 @@
 {
     "name": "iplocation",
-    "version": "6.0.3",
+    "version": "6.0.4",
     "description": "get ip location information",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -39,7 +39,7 @@
     },
     "homepage": "https://github.com/roryrjb/iplocation",
     "dependencies": {
-        "debug": "=4.1.0",
+        "debug": "^3.0.0",
         "ip-validator": "0.0.1",
         "request": "=2.88.0"
     },
