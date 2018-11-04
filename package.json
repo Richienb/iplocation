@@ -28,6 +28,9 @@
     "contributors": [
         {
             "name": "Chris Dyson"
+        },
+        {
+            "name": "Ahmed Tarek"
         }
     ],
     "license": "MIT",
@@ -37,12 +40,11 @@
     "homepage": "https://github.com/roryrjb/iplocation",
     "dependencies": {
         "debug": "=4.1.0",
-        "ip-regex": "=2.1.0",
+        "ip-validator": "0.0.1",
         "request": "=2.88.0"
     },
     "devDependencies": {
         "@types/debug": "=0.0.31",
-        "@types/ip-regex": "=2.0.0",
         "@types/request": "=2.47.1",
         "ahcom": "=0.0.10",
         "eslint": "=5.7.0",
