@@ -57,6 +57,9 @@ export default function(
             try {
                 log("got: " + body);
                 json = JSON.parse(body);
+                if (json.error) {
+                    return retry(++i, callback);
+                }
             } catch (ex) {
                 return retry(++i, callback);
             }
