@@ -44,8 +44,7 @@
     "homepage": "https://github.com/roryrjb/iplocation",
     "dependencies": {
         "debug": "^4.1.1",
-        "ip-validator": "0.0.1",
-        "request": "=2.88.0"
+        "ip-validator": "0.0.1"
     },
     "devDependencies": {
         "@types/debug": "^4.1.4",
