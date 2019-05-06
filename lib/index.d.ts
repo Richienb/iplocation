@@ -23,4 +23,4 @@ export default function (
     callback: Callback
 ): void;
 
-export {};
+export { IPResponse };
