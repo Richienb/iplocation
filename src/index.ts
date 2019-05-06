@@ -3,8 +3,7 @@ import debug from "debug";
 import { normalise, validateIp, IPResponse } from "./interface";
 
 const defaultProviders: string[] = [
-  "https://ipapi.co/*/json/",
-  "https://ipinfo.io/*"
+  "https://ipapi.co/*/json/"
 ];
 
 const log = debug("iplocation");
