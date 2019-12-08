@@ -1,3 +1,5 @@
+[__Looking for a new maintainer__](https://github.com/roryrjb/iplocation/issues/24)
+
 # iplocation
 
 [![NPM version][npm-image]][npm-url]
