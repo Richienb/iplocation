@@ -1,4 +1,4 @@
-import { ip as validate } from "ip-validator";
+import isIp from "is-ip";
 
 export interface IPResponse {
     country: string;
@@ -32,7 +32,7 @@ const keys: { [key: string]: string[]; } = {
     __latlon: ["loc"]
 };
 
-export function getPropertyByPath (obj: any, path: string): any | null {
+export function getPropertyByPath(obj: any, path: string): any | null {
     const parts = path.split(".");
     let currentValue = obj;
 
@@ -47,11 +47,11 @@ export function getPropertyByPath (obj: any, path: string): any | null {
     return currentValue;
 }
 
-export function validateIp (ip: string): boolean {
-    return !ip || !validate(ip);
+export function validateIp(ip: string): boolean {
+    return !ip || !isIp.v4(ip);
 }
 
-export function normalise (res: GenericResponse): IPResponse {
+export function normalise(res: GenericResponse): IPResponse {
     const output: any = {};
 
     for (const outputKey in keys) {
