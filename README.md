@@ -16,9 +16,9 @@ npm install iplocation
 const ipLocation = require("ip-location");
 
 (async () => {
-	await ipLocation("172.217.167.78")
+	await ipLocation("172.217.167.78");
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
-})()
+})();
 ```
 
 ## API
