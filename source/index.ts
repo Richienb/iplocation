@@ -52,9 +52,9 @@ declare namespace ipLocation {
 			currency: {
 				name: string
 				code: string
-			},
+			}
 			languages: string[]
-		},
+		}
 		continent: {
 			code: string
 			inEu: boolean
@@ -119,3 +119,4 @@ async function ipLocation(ip: string): Promise<ipLocation.LocationData> {
 export default ipLocation
 
 module.exports = ipLocation
+module.exports.default = ipLocation // eslint-disable-line @typescript-eslint/no-unsafe-member-access
