@@ -2,7 +2,7 @@ import ky from "ky-universal"
 import isIp from "is-ip"
 
 declare namespace ipLocation {
-	export interface ReturnData {
+	export interface LocationData {
 		latitude: number
 		longitude: number
 	}
@@ -21,7 +21,7 @@ const ipLocation = require("ip-location");
 })()
 ```
 */
-async function ipLocation(ip: string): Promise<ipLocation.ReturnData> {
+async function ipLocation(ip: string): Promise<ipLocation.LocationData> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
