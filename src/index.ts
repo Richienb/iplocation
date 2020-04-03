@@ -1,7 +1,7 @@
 import debug from "debug";
-import request from "request";
+import ky from "ky-universal";
 
-import { normalise, validateIp, IPResponse } from "./interface";
+import { normalise, validateIp, IPResponse, GenericResponse } from "./interface";
 
 const defaultProviders: string[] = [
     "https://ipapi.co/*/json/",
@@ -51,23 +51,17 @@ export default function(
 
         log("trying: " + url);
 
-        request.get(url, {withCredentials: false}, (err, response, body) => {
-            let json;
-
-            try {
-                log("got: " + body);
-                json = JSON.parse(body);
-                if (json.error) {
+        ky(url).json()
+            .then((data: GenericResponse) => {
+                if (data.error) {
                     return retry(++i, callback);
                 }
-            } catch (ex) {
-                return retry(++i, callback);
-            }
 
-            const normalised = normalise(json);
-            log("returned: ", normalised);
-            return callback(err, normalised);
-        });
+                const normalised = normalise(data);
+                log("returned: ", normalised);
+                return callback(undefined, normalised);
+            })
+            .catch((error) => callback(error, undefined))
     }
 
     if (callback) {
