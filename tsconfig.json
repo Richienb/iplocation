@@ -1,20 +1,9 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "lib": ["es2015"],
-        "esModuleInterop": true,
-        "target": "es5",
-        "noImplicitAny": true,
-        "moduleResolution": "node",
-        "outDir": "lib",
-        "baseUrl": ".",
-        "paths": {
-            "*": [
-                "node_modules/*"
-            ]
-        }
-    },
-    "include": [
-        "src/**/*"
-    ]
+	"extends": "@richienb/tsconfig",
+	"compilerOptions": {
+		"outDir": "dist"
+	},
+	"include": [
+		"source"
+	]
 }
