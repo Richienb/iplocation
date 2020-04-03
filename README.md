@@ -17,7 +17,7 @@ const ipLocation = require("ip-location");
 
 (async () => {
 	await ipLocation("172.217.167.78")
-	//=> { latitude: -33.8591, longitude: 151.2002 }
+	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
 })()
 ```
 
@@ -30,7 +30,3 @@ const ipLocation = require("ip-location");
 Type: `string`
 
 The ipv4 address to get the information for.
-
-## Related
-
-- [`iplocation-cli`](https://github.com/roryrjb/iplocation-cli) - Command line interface.
