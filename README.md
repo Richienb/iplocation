@@ -30,3 +30,7 @@ const ipLocation = require("ip-location");
 Type: `string`
 
 The ipv4 address to get the information for.
+
+## Related
+
+- [iplocation-cli](https://github.com/Richienb/iplocation-cli) - CLI for this module.
