@@ -5,6 +5,7 @@ test("main", async t => {
 	t.deepEqual(await ipLocation("172.217.167.78"), {
 		latitude: -33.8591,
 		longitude: 151.2002,
+		city: "Sydney",
 		region: { name: "New South Wales", code: "NSW" },
 		country: {
 			name: "Australia",
@@ -16,7 +17,7 @@ test("main", async t => {
 			area: 7686850,
 			callingCode: "+61",
 			postalCode: "2000",
-			timezone: { code: "Australia/Sydney", offset: "+1100" },
+			timezone: { code: "Australia/Sydney", offset: "+1000" },
 			currency: { name: "Dollar", code: "AUD" },
 			languages: ["en-AU"]
 		},

@@ -31,6 +31,7 @@ declare namespace ipLocation {
 	export interface LocationData {
 		latitude: number
 		longitude: number
+		city: string
 		region: {
 			name: string
 			code: string
@@ -80,11 +81,12 @@ async function ipLocation(ip: string): Promise<ipLocation.LocationData> {
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
 
-	const { latitude, longitude, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`).json()
+	const { latitude, longitude, city, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`).json()
 
 	return {
 		latitude,
 		longitude,
+		city,
 		region: {
 			name: region,
 			code: region_code
