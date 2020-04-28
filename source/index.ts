@@ -4,7 +4,7 @@ import isIp from "is-ip"
 interface IpApiData {
 	ip: string
 	city: string
-	reserved: boolean 
+	reserved: boolean
 	region: string
 	region_code: string
 	country: string
@@ -30,15 +30,14 @@ interface IpApiData {
 
 declare namespace ipLocation {
 	export interface LocationData {
-		latitude?: number
-		longitude?: number
-		city?: string
-		reserved?: boolean
-		region?: {
+		latitude: number
+		longitude: number
+		city: string
+		region: {
 			name: string
 			code: string
 		}
-		country?: {
+		country: {
 			name: string
 			code: string
 			iso3: string
@@ -58,11 +57,17 @@ declare namespace ipLocation {
 			}
 			languages: string[]
 		}
-		continent?: {
+		continent: {
 			code: string
 			inEu: boolean
 		}
 	}
+
+	export interface ReservedData {
+		reserved: boolean
+	}
+
+	export type ReturnType = (LocationData & ReservedData) | ReservedData
 }
 
 /**
@@ -78,7 +83,7 @@ const ipLocation = require("ip-location");
 })();
 ```
 */
-async function ipLocation(ip: string): Promise<ipLocation.LocationData> {
+async function ipLocation(ip: string): Promise<ipLocation.ReturnType> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
@@ -91,7 +96,7 @@ async function ipLocation(ip: string): Promise<ipLocation.LocationData> {
 		latitude,
 		longitude,
 		city,
-		reserved: !!reserved,
+		reserved: Boolean(reserved),
 		region: {
 			name: region,
 			code: region_code
@@ -114,7 +119,7 @@ async function ipLocation(ip: string): Promise<ipLocation.LocationData> {
 				name: currency_name,
 				code: currency
 			},
-			languages: languages ? languages.split(",") : languages
+			languages: languages ? languages.split(",") : []
 		},
 		continent: {
 			code: continent_code,

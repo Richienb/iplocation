@@ -6,6 +6,7 @@ test("main", async t => {
 		latitude: -33.8591,
 		longitude: 151.2002,
 		city: "Sydney",
+		reserved: false,
 		region: { name: "New South Wales", code: "NSW" },
 		country: {
 			name: "Australia",
