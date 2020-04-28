@@ -30,14 +30,15 @@ interface IpApiData {
 
 declare namespace ipLocation {
 	export interface LocationData {
-		latitude: number
-		longitude: number
-		city: string
-		region: {
+		latitude?: number
+		longitude?: number
+		city?: string
+		reserved?: boolean
+		region?: {
 			name: string
 			code: string
 		}
-		country: {
+		country?: {
 			name: string
 			code: string
 			iso3: string
@@ -57,7 +58,7 @@ declare namespace ipLocation {
 			}
 			languages: string[]
 		}
-		continent: {
+		continent?: {
 			code: string
 			inEu: boolean
 		}
@@ -84,7 +85,9 @@ async function ipLocation(ip: string): Promise<ipLocation.LocationData> {
 
 	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`).json()
 
-	return {
+	return reserved ? {
+		reserved
+	} : {
 		latitude,
 		longitude,
 		city,
