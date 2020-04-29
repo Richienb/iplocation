@@ -1,6 +1,6 @@
 {
 	"name": "iplocation",
-	"version": "7.1.0",
+	"version": "7.2.0",
 	"description": "Get ip location information.",
 	"repository": "https://github.com/Richienb/iplocation.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
