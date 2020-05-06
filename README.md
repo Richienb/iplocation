@@ -31,6 +31,10 @@ Type: `string`
 
 The ipv4 address to get the information for.
 
+## Providers
+
+iplocation currently uses [ipapi](https://ipapi.co/) for IP lookups. Their free API is limited to 1000 requests per day.
+
 ## Related
 
 - [iplocation-cli](https://github.com/Richienb/iplocation-cli) - CLI for this module.
