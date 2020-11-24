@@ -13,7 +13,7 @@ npm install iplocation
 ## Usage
 
 ```js
-const ipLocation = require("ip-location");
+const ipLocation = require("iplocation");
 
 (async () => {
 	await ipLocation("172.217.167.78");
