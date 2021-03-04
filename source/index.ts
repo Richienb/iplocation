@@ -86,7 +86,7 @@ const ipLocation = require("iplocation");
 */
 async function ipLocation(ip: string, userAgent: string): Promise<ipLocation.ReturnType> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
-		throw new TypeError("A valid ipv4 address must be provided!")
+		throw new TypeError(`${typeof ip} '${ip}' is not a valid IPv4 address`)
 	}
 
 	const {
