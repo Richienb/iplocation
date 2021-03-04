@@ -76,7 +76,7 @@ Get ip location information.
 @param userAgent The User-Agent header to send along. Useful if you receive unexpected 429 Rate Limited errors.
 @example
 ```
-const ipLocation = require("ip-location");
+const ipLocation = require("iplocation");
 
 (async () => {
 	await ipLocation("172.217.167.78", "My Awesome Project (mailto:author@example.org)");
