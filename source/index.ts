@@ -73,22 +73,53 @@ declare namespace ipLocation {
 /**
 Get ip location information.
 @param ip The ipv4 address to get the information for.
+@param userAgent The User-Agent header to send along. Useful if you receive unexpected 429 Rate Limited errors.
 @example
 ```
 const ipLocation = require("ip-location");
 
 (async () => {
-	await ipLocation("172.217.167.78");
+	await ipLocation("172.217.167.78", "My Awesome Project (mailto:author@example.org)");
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
 })();
 ```
 */
-async function ipLocation(ip: string): Promise<ipLocation.ReturnType> {
+async function ipLocation(ip: string, userAgent: string): Promise<ipLocation.ReturnType> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
 
-	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`).json()
+	const {
+		latitude,
+		longitude,
+		city,
+		reserved,
+		region,
+		region_code,
+		country_name,
+		country_code,
+		country_code_iso3,
+		country_capital,
+		country_tld,
+		country_population,
+		country_calling_code,
+		continent_code,
+		in_eu,
+		postal,
+		timezone,
+		utc_offset,
+		currency,
+		currency_name,
+		languages,
+		country_area
+	}: IpApiData = await ky(
+		`https://ipapi.co/${ip}/json/`,
+		{
+			headers: {
+				"User-Agent": userAgent
+			}
+		}
+	).json()
 
 	return reserved ? {
 		reserved
