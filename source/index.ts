@@ -29,6 +29,10 @@ interface IpApiData {
 }
 
 declare namespace ipLocation {
+	export interface Options {
+		userAgent?: string // The User-Agent header to send along. Useful if you receive unexpected 429 Rate Limited errors.
+	}
+
 	export interface LocationData {
 		latitude: number
 		longitude: number
@@ -73,18 +77,18 @@ declare namespace ipLocation {
 /**
 Get ip location information.
 @param ip The ipv4 address to get the information for.
-@param userAgent The User-Agent header to send along. Useful if you receive unexpected 429 Rate Limited errors.
+@param options An Options object. Optional.
 @example
 ```
 const ipLocation = require("iplocation");
 
 (async () => {
-	await ipLocation("172.217.167.78", "My Awesome Project (mailto:author@example.org)");
+	await ipLocation("172.217.167.78", { userAgent: "My Awesome Project (mailto:author@example.org)" });
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
 })();
 ```
 */
-async function ipLocation(ip: string, userAgent: string): Promise<ipLocation.ReturnType> {
+async function ipLocation(ip: string, options: ipLocation.Options = {}): Promise<ipLocation.ReturnType> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
 		throw new TypeError(`${typeof ip} '${ip}' is not a valid IPv4 address`)
 	}
@@ -116,7 +120,7 @@ async function ipLocation(ip: string, userAgent: string): Promise<ipLocation.Ret
 		`https://ipapi.co/${ip}/json/`,
 		{
 			headers: {
-				"User-Agent": userAgent
+				"User-Agent": options.userAgent
 			}
 		}
 	).json()
