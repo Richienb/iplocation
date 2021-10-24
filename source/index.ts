@@ -67,6 +67,19 @@ declare namespace ipLocation {
 		reserved: boolean
 	}
 
+	/**
+		@param ip The ipv4 address to get the information for.
+		@param options The optional object containing API key to be use.
+		@example
+		```
+		const ipLocation = require("ip-location");
+
+		(async () => {
+			await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY' });
+			//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
+		})();
+		```
+	 */
 	export interface Options { 
 		apiKey: string 
 	}
@@ -77,7 +90,6 @@ declare namespace ipLocation {
 /**
 Get ip location information.
 
-@description Using the free tier of ipapi
 @param ip The ipv4 address to get the information for.
 @example
 ```
@@ -85,18 +97,6 @@ const ipLocation = require("ip-location");
 
 (async () => {
 	await ipLocation("172.217.167.78");
-	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
-})();
-```
-@description Using the paid tier of ipapi
-@param ip The ipv4 address to get the information for.
-@param options The optional object containg API key to be use.
-@example
-```
-const ipLocation = require("ip-location");
-
-(async () => {
-	await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY'});
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
 })();
 ```
