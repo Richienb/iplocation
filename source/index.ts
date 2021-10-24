@@ -76,6 +76,8 @@ declare namespace ipLocation {
 
 /**
 Get ip location information.
+
+@description Using the free tier of ipapi
 @param ip The ipv4 address to get the information for.
 @example
 ```
@@ -86,13 +88,26 @@ const ipLocation = require("ip-location");
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
 })();
 ```
+@description Using the paid tier of ipapi
+@param ip The ipv4 address to get the information for.
+@param options The optional object containg API key to be use.
+@example
+```
+const ipLocation = require("ip-location");
+
+(async () => {
+	await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY'});
+	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
+})();
+```
 */
+
 async function ipLocation(ip: string, options?: ipLocation.Options): Promise<ipLocation.ReturnType> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
 
-	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`, { searchParams: { 'key': options?.apiKey } }).json()
+	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`, { searchParams: { key: options?.apiKey } }).json()
 
 	return reserved ? {
 		reserved

@@ -20,12 +20,6 @@ const ipLocation = require("iplocation");
 	await ipLocation("172.217.167.78");
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
 })();
-
-// using the paid tier of ipapi
-(async () => {
-	await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY'});
-	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
-})();
 ```
 
 ## API
@@ -46,7 +40,15 @@ Type: `object`
 
 Type: `string`
 
-The api key for the paid version of [ipapi](https://ipapi.co/pricing/?utm_source=google&utm_term=ipapi&utm_campaign=10951547418&adgroupid=109238001284&device=c&utm_medium=cpc&utm_content=459469000491&gclid=Cj0KCQjwiNSLBhCPARIsAKNS4_dAe4tHfaLyWSQSqp0kZUnZBrhTkldv5cRYLMqH_XinJuyuJ8Dplg0aAmrsEALw_wcB).
+An optional [ipapi](https://ipapi.co/) API key to use.
+
+```js
+// using the paid tier of ipapi
+(async () => {
+	await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY'});
+	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
+})();
+```
 
 ## Providers
 
