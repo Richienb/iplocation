@@ -83,18 +83,12 @@ const ipLocation = require("ip-location");
 })();
 ```
 */
-async function ipLocation(ip: string, apiKey?: string): Promise<ipLocation.ReturnType> {
+async function ipLocation(ip: string, options?: { apiKey: string }): Promise<ipLocation.ReturnType> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
 
-	const IPAPI_URL = new URL(`https://ipapi.co/${ip}/json/`)
-
-	if (apiKey) {
-		IPAPI_URL.searchParams.append("key", apiKey)
-	}
-
-	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(IPAPI_URL.href).json()
+	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`, { searchParams: options?.apiKey ? { 'key': options.apiKey } : null }).json()
 
 	return reserved ? {
 		reserved
