@@ -45,7 +45,7 @@ An optional [ipapi](https://ipapi.co/) API key to use.
 const ipLocation = require("iplocation");
 
 (async () => {
-	await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY'});
+	await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY' });
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
 })();
 ```
