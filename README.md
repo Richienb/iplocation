@@ -15,7 +15,6 @@ npm install iplocation
 ```js
 const ipLocation = require("iplocation");
 
-// using the free tier of ipapi
 (async () => {
 	await ipLocation("172.217.167.78");
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
@@ -43,7 +42,8 @@ Type: `string`
 An optional [ipapi](https://ipapi.co/) API key to use.
 
 ```js
-// using the paid tier of ipapi
+const ipLocation = require("iplocation");
+
 (async () => {
 	await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY'});
 	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
