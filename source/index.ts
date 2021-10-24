@@ -81,7 +81,7 @@ declare namespace ipLocation {
 		})();
 		```
 		*/
-		apiKey: string 
+		apiKey?: string 
 	}
 
 	export type ReturnType = (LocationData & ReservedData) | ReservedData
