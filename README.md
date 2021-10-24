@@ -23,13 +23,32 @@ const ipLocation = require("iplocation");
 
 ## API
 
-### ipLocation(ip)
+### ipLocation(ip, options?)
 
 #### ip
 
 Type: `string`
 
 The ipv4 address to get the information for.
+
+#### options
+
+Type: `object`
+
+#### apiKey
+
+Type: `string`
+
+An optional [ipapi](https://ipapi.co/) API key to use.
+
+```js
+const ipLocation = require("iplocation");
+
+(async () => {
+	await ipLocation("172.217.167.78", { apiKey: 'YOUR_API_KEY' });
+	//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
+})();
+```
 
 ## Providers
 
