@@ -67,9 +67,10 @@ declare namespace ipLocation {
 		reserved: boolean
 	}
 
+	export interface Options { 
 	/**
-		@param ip The ipv4 address to get the information for.
-		@param options The optional object containing API key to be use.
+	    An optional ipapi API key to use.
+
 		@example
 		```
 		const ipLocation = require("ip-location");
@@ -80,7 +81,6 @@ declare namespace ipLocation {
 		})();
 		```
 	 */
-	export interface Options { 
 		apiKey: string 
 	}
 
