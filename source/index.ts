@@ -68,8 +68,8 @@ declare namespace ipLocation {
 	}
 
 	export interface Options { 
-	/**
-	    An optional ipapi API key to use.
+		/**
+		An optional [ipapi](https://ipapi.co/) API key to use.
 
 		@example
 		```
@@ -80,7 +80,7 @@ declare namespace ipLocation {
 			//=> { latitude: -33.8591, longitude: 151.2002, region: { name: "New South Wales" ... } ... }
 		})();
 		```
-	 */
+		*/
 		apiKey: string 
 	}
 
@@ -89,7 +89,6 @@ declare namespace ipLocation {
 
 /**
 Get ip location information.
-
 @param ip The ipv4 address to get the information for.
 @example
 ```
@@ -101,7 +100,6 @@ const ipLocation = require("ip-location");
 })();
 ```
 */
-
 async function ipLocation(ip: string, options?: ipLocation.Options): Promise<ipLocation.ReturnType> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
 		throw new TypeError("A valid ipv4 address must be provided!")
