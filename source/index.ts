@@ -67,6 +67,10 @@ declare namespace ipLocation {
 		reserved: boolean
 	}
 
+	export interface Options { 
+		apiKey: string 
+	}
+
 	export type ReturnType = (LocationData & ReservedData) | ReservedData
 }
 
@@ -83,7 +87,7 @@ const ipLocation = require("ip-location");
 })();
 ```
 */
-async function ipLocation(ip: string, options?: { apiKey: string }): Promise<ipLocation.ReturnType> {
+async function ipLocation(ip: string, options?: ipLocation.Options): Promise<ipLocation.ReturnType> {
 	if (typeof ip !== "string" || !isIp.v4(ip)) {
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
