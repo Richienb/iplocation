@@ -92,7 +92,7 @@ async function ipLocation(ip: string, options?: ipLocation.Options): Promise<ipL
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
 
-	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`, { searchParams: options?.apiKey ? { 'key': options.apiKey } : null }).json()
+	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`, { searchParams: { 'key': options?.apiKey } }).json()
 
 	return reserved ? {
 		reserved
