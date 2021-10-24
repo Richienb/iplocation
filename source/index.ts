@@ -54,7 +54,7 @@ declare namespace ipLocation {
 			currency: {
 				name: string
 				code: string
-			};
+			}
 			languages: string[]
 		}
 		continent: {
@@ -97,7 +97,7 @@ async function ipLocation(ip: string, apiKey?: string): Promise<ipLocation.Retur
 	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(IPAPI_URL.href).json()
 
 	return reserved ? {
-		reserved,
+		reserved
 	} : {
 		latitude,
 		longitude,
@@ -105,7 +105,7 @@ async function ipLocation(ip: string, apiKey?: string): Promise<ipLocation.Retur
 		reserved: Boolean(reserved),
 		region: {
 			name: region,
-			code: region_code,
+			code: region_code
 		},
 		country: {
 			name: country_name,
@@ -125,7 +125,7 @@ async function ipLocation(ip: string, apiKey?: string): Promise<ipLocation.Retur
 				name: currency_name,
 				code: currency
 			},
-			languages: languages ? languages.split(",") : [],
+			languages: languages ? languages.split(",") : []
 		},
 		continent: {
 			code: continent_code,
