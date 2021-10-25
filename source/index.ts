@@ -67,7 +67,7 @@ declare namespace ipLocation {
 		reserved: boolean
 	}
 
-	export interface Options { 
+	export interface Options {
 		/**
 		An optional [ipapi](https://ipapi.co/) API key to use.
 
@@ -81,10 +81,14 @@ declare namespace ipLocation {
 		})();
 		```
 		*/
-		apiKey?: string 
+		apiKey?: string
 	}
 
 	export type ReturnType = (LocationData & ReservedData) | ReservedData
+}
+
+function composeSearchParameters(options?: ipLocation.Options): {[key: string]: string | number | boolean} {
+	return options?.apiKey ? { key: options.apiKey } : {}
 }
 
 /**
@@ -105,7 +109,7 @@ async function ipLocation(ip: string, options?: ipLocation.Options): Promise<ipL
 		throw new TypeError("A valid ipv4 address must be provided!")
 	}
 
-	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`, { searchParams: { key: options?.apiKey } }).json()
+	const { latitude, longitude, city, reserved, region, region_code, country_name, country_code, country_code_iso3, country_capital, country_tld, country_population, country_calling_code, continent_code, in_eu, postal, timezone, utc_offset, currency, currency_name, languages, country_area }: IpApiData = await ky(`https://ipapi.co/${ip}/json/`, { searchParams: composeSearchParameters(options) }).json()
 
 	return reserved ? {
 		reserved
